@@ -1,5 +1,5 @@
 wowza:
-  image: sameersbn/wowza:4.1.2-8
+  build: .
   environment:
     - WOWZA_ACCEPT_LICENSE=yes
     - WOWZA_KEY=
