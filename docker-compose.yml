@@ -1,4 +1,4 @@
-Wowza:
+wowza:
   image: sameersbn/wowza:4.1.2-8
   environment:
     - WOWZA_ACCEPT_LICENSE=yes
