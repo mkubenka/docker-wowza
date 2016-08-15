@@ -2,6 +2,7 @@ version: '2'
 
 services:
   wowza:
+    restart: always
     build: .
     environment:
       - WOWZA_ACCEPT_LICENSE=yes
