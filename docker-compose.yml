@@ -5,7 +5,7 @@ services:
     build: .
     environment:
       - WOWZA_ACCEPT_LICENSE=yes
-      - WOWZA_KEY=
+      - WOWZA_KEY
     ports:
       - "1935:1935"
       - "8086:8086"
