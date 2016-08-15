@@ -12,5 +12,9 @@ services:
       - "8087:8087"
       - "8088:8088"
     volumes:
-      - /srv/docker/wowza/data:/var/lib/wowza
-      - /srv/docker/wowza/log:/var/log/wowza
+      - wowza_lib:/var/lib/wowza
+      - wowza_log:/var/log/wowza
+
+volumes:
+  wowza_lib:
+  wowza_log:
