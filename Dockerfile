@@ -12,9 +12,12 @@ RUN apt-get update \
 COPY prepare.sh interaction.exp /app/
 RUN /app/prepare.sh
 
+RUN mkdir /opt/jolokia \
+    && wget -O /opt/jolokia/jolokia-jvm-1.3.5-agent.jar http://search.maven.org/remotecontent?filepath=org/jolokia/jolokia-jvm/1.3.5/jolokia-jvm-1.3.5-agent.jar
+
 COPY entrypoint.sh /sbin/entrypoint.sh
 RUN chmod 755 /sbin/entrypoint.sh
 
-EXPOSE 1935/tcp 8086/tcp 8087/tcp 8088/tcp
+EXPOSE 1935/tcp 8086/tcp 8087/tcp 8088/tcp 8778/tcp
 VOLUME ["${WOWZA_DATA_DIR}", "${WOWZA_LOG_DIR}"]
 ENTRYPOINT ["/sbin/entrypoint.sh"]

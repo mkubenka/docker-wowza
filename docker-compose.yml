@@ -12,6 +12,7 @@ services:
       - "8086:8086"
       - "8087:8087"
       - "8088:8088"
+      - "8778:8778"
     volumes:
       - wowza_lib:/var/lib/wowza
       - wowza_log:/var/log/wowza
