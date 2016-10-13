@@ -85,6 +85,7 @@ initialize_data_dir() {
     [[ ! -d ${WOWZA_DATA_DIR}/backup ]]       && cp -a /usr/local/WowzaStreamingEngine/backup ${WOWZA_DATA_DIR}/backup
     [[ ! -d ${WOWZA_DATA_DIR}/applications ]] && cp -a /usr/local/WowzaStreamingEngine/applications ${WOWZA_DATA_DIR}/applications
     [[ ! -d ${WOWZA_DATA_DIR}/stats ]]        && mkdir -p ${WOWZA_DATA_DIR}/stats
+    [[ ! -d ${WOWZA_DATA_DIR}/lib ]]          && mkdir -p ${WOWZA_DATA_DIR}/lib
     touch ${WOWZA_DATA_DIR}/.firstrun
   fi
 }
@@ -103,9 +104,14 @@ initialize_log_dir() {
   chown -R root:root ${WOWZA_LOG_DIR}/manager
 }
 
+initialize_libs() {
+  ln -sf ${WOWZA_DATA_DIR}/lib/*.jar /usr/local/WowzaStreamingEngine/lib/
+}
+
 check_and_install_wowza
 initialize_data_dir
 initialize_log_dir
+initialize_libs
 rewire_wowza
 
 if [[ -z ${1} ]]; then
